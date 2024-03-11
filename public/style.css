@@ -1,0 +1,958 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Trebuchet MS";
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slider */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  /* Change width to 100% */
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  -ms-overflow-style: none;
+  /* Hide scrollbar IE and Edge */
+  scrollbar-width: none;
+  /* Hide scrollbar Firefox */
+}
+
+.slider img {
+  width: 100%;
+  height: 75vh;
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 0;
+  /* Adjust left positioning */
+  width: 100%;
+  /* Ensure full width */
+  justify-content: center;
+  /* Center the navigation horizontally */
+}
+
+.slider-nav a {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 500ms;
+}
+
+.slider-nav a:hover {
+  opacity: 1;
+}
+
+/* Dropdown menu */
+.dropdown {
+  padding: 1rem;
+  display: inline-block;
+}
+
+.dropdown a {
+  display: block;
+  color: black;
+}
+
+.dropdown .content {
+  display: none;
+  margin-top: 0.5rem;
+  position: absolute;
+  box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
+  z-index: 1;
+}
+
+.dropdown .content a {
+  padding: 2rem;
+  background-color: #111111;
+  color: #808080;
+}
+
+.dropdown .content a:hover {
+  color: #fff;
+}
+
+.dropdown:hover .content {
+  display: block;
+}
+
+/* Back to top button */
+.container-top {
+  --offset: 100px;
+  --fade: 120px;
+  display: flex;
+  min-width: 3.75rem;
+  justify-self: end;
+  justify-content: flex-end;
+  align-items: flex-end;
+  -webkit-mask: linear-gradient(
+    #0000 calc(100vh + var(--offset)),
+    #000 calc(100vh + var(--offset) + var(--fade))
+  );
+}
+
+.website-development {
+  text-align: center;
+  /* Выравниваем текст по центру */
+  margin-bottom: 50px;
+  /* Добавляем нижний отступ для создания пространства между этим блоком и следующим */
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.pricing-item {
+  width: 30%;
+  padding: 30px;
+  border: 2px solid #800080;
+  /* Цвет рамки */
+  border-radius: 10px;
+  /* Закругление углов */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Тень блока */
+  text-align: center;
+}
+
+.pricing-item h3 {
+  font-size: 24px;
+  color: #800080;
+  /* Цвет заголовка */
+  margin-bottom: 20px;
+}
+
+.pricing-item p {
+  color: #666;
+  /* Цвет текста */
+}
+
+.pricing-item ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.pricing-item ul li {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Hover эффект */
+.pricing-item:hover {
+  border-color: #a040a0;
+  transform: scale(1.05);
+  /* Увеличиваем размер блока при наведении */
+  transition: border-color 0.3s, transform 0.3s;
+  /* Анимация изменения свойств */
+}
+
+.pricing-item:hover p,
+h3 {
+  color: #a040a0;
+}
+
+.pricing-item:hover h3 {
+  color: #a040a0;
+}
+
+.request-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #800080;
+  /* Основной фиолетовый цвет */
+  color: #fff;
+  /* Белый цвет текста */
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.request-button:hover {
+  background-color: #ba55d3;
+  /* Фиолетовый цвет для hover */
+  color: #fff;
+  /* Белый цвет текста */
+}
+
+.home-page-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.home-page-text-wrapper p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.top {
+  position: sticky;
+  bottom: 1.25rem;
+  margin-right: 0.625rem;
+  width: 100%;
+  aspect-ratio: 1;
+  background: #000000;
+  border-radius: 10px;
+}
+
+.top:before {
+  content: "";
+  position: absolute;
+  inset: 30%;
+  transform: translateY(20%) rotate(-45deg);
+  border-top: 5px solid #fff;
+  border-right: 5px solid #fff;
+}
+
+.top:hover {
+  background-color: #808080;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.pagination h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.column-right-map {
+  border: 3px solid;
+  margin: auto;
+}
+
+.header {
+  border: 15px solid;
+}
+
+.logo {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0 2rem;
+  transition: 0.3s;
+}
+
+nav {
+  height: 8.75rem;
+  background-color: #ffd500;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem calc((100vw - 1300px) / 2);
+  padding-top: 2rem;
+}
+
+nav ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav li {
+  height: 50px;
+}
+
+nav li:first-child {
+  margin-right: auto;
+}
+
+nav .communication {
+  text-decoration: underline;
+  color: #000;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  /* Adjust as needed */
+}
+
+nav .call {
+  text-align: right;
+  text-decoration: underline;
+  color: #000;
+}
+
+.logo {
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0 2rem;
+  transition: 0.3s;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+nav input {
+  background: #ffd500;
+  outline: none;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+.cancel {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+nav a {
+  height: 100%;
+  padding: 0 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: black;
+  padding: 0 1.7rem;
+  transition: ease-out 300ms;
+}
+
+nav a:hover {
+  color: #ffd;
+}
+
+.hero {
+  background: #ffd500;
+  flex: 1;
+}
+
+.hero-container {
+  display: flex;
+  padding: 0rem calc((100vw - 1300px) / 2);
+}
+
+.column-left-request {
+  color: #000;
+  padding: 4rem;
+}
+
+.column-left-request .taskbox {
+  height: 200px;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.column-left-request .attachment {
+  width: 50%;
+  border: none;
+}
+
+.column-left-request .attachment:focus {
+  background: none;
+}
+
+.column-left-request .checkbox {
+  width: 1rem;
+  min-height: 1rem;
+  padding: 0;
+  margin: 10px;
+}
+
+.modal {
+  margin: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #ffd500;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 250px;
+  text-align: center;
+  border-radius: 25px;
+  border: 3px solid;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal input {
+  margin-top: 12px;
+  margin-right: 1rem;
+  border: 2px solid;
+}
+
+.modal input:focus {
+  border: 2px solid #555;
+}
+
+.modal input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: ease-out 3000ms;
+}
+
+.modal input:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+.modal input:focus::-ms-placeholder {
+  opacity: 0;
+}
+
+.modal p {
+  font-weight: bold;
+  margin: 1rem;
+}
+
+.modal a {
+  cursor: pointer;
+}
+
+.modalbutton {
+  margin-top: 2rem;
+}
+
+.modalbutton a {
+  color: #ffd500;
+}
+
+.modalbutton a:hover {
+  color: #ffd500;
+}
+
+.column-left-request h1 {
+  margin-bottom: 4rem;
+  margin-left: 2rem;
+  font-size: 3rem;
+}
+
+.column-left-request p {
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  margin-left: 3rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.column-left-request input {
+  outline: none;
+  width: 100%;
+  margin-left: 2rem;
+  padding: 0.6rem;
+  caret-color: transparent;
+  border-radius: 1rem 10px;
+  border: 4px solid #ccc;
+  font-size: 0.9rem;
+}
+
+.column-left-request input:focus {
+  border: 4px solid #555;
+}
+
+.column-left-request input:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: ease-out 350ms;
+}
+
+.column-left-request input:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+.column-left-request input:focus::-ms-placeholder {
+  opacity: 0;
+}
+
+.column-left {
+  color: #000;
+  padding: 4rem 4rem;
+}
+
+.column-left h1 {
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  font-size: 3rem;
+}
+
+.column-left p {
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.home-page {
+}
+
+.home-page h1 {
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  font-size: 3rem;
+}
+
+.home-page p {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+nav input.search {
+  width: 0;
+  /* Initially, set width to 0 */
+  opacity: 0;
+  /* Initially, hide the input */
+  transition: width 0.3s ease, opacity 0.3s ease;
+  background: #ffd500;
+  outline: none;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border-radius: 10px;
+}
+
+.search-button {
+  padding: 0.5rem;
+  /* Adjust padding for the search button */
+  min-width: 3rem;
+  /* Set a minimum width for the search button */
+  background-color: #ffd500;
+  color: #fff;
+  border: none;
+  border-radius: 70px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  vertical-align: middle;
+  margin: 10px;
+}
+
+nav .search-button:hover {
+  background-color: #808080;
+  /* Darker shade of the original color */
+}
+
+nav .search.active {
+  opacity: 1;
+  width: 200px;
+  display: inline-block;
+  border: 2px solid;
+}
+
+nav .search.active + .search-button {
+  margin-right: 0;
+}
+
+nav button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border: none;
+  color: #ffd500;
+  background: #000;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: ease-out 750ms;
+}
+
+nav button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.column-left-request button {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: none;
+  color: #ffd500;
+  background: #000;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: ease-out 750ms;
+}
+
+.column-left-request button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.column-right {
+  color: #000;
+  padding: 0rem 4rem;
+}
+
+.column-right h1 {
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  font-size: 3rem;
+}
+
+.column-right p {
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.hero-image {
+  width: 302.4px;
+  height: 300px;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu-button {
+  display: none;
+}
+
+.footer {
+  background: #000;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+.footer .row {
+  width: 100%;
+  margin: 1% 0%;
+  padding: 0.6% 0%;
+  color: gray;
+  font-size: 0.8em;
+}
+
+.footer .row a {
+  text-decoration: none;
+  color: gray;
+}
+
+.footer .row a:hover {
+  color: #fff;
+}
+
+.footer .row ul {
+  width: 100%;
+}
+
+.footer .row ul li {
+  display: inline-block;
+  margin: 0px 30px;
+}
+
+.footer .row a i {
+  font-size: 2em;
+  margin: 0% 1%;
+}
+
+@media (max-width: 720px) {
+  .footer {
+    text-align: left;
+    padding: 5%;
+  }
+
+  .footer .row ul li {
+    display: block;
+    margin: 10px 0px;
+    text-align: left;
+  }
+
+  .footer .row a i {
+    margin: 0% 3%;
+  }
+}
+
+nav h1 {
+  font-family: "Space Mono", monospace;
+  font-size: clamp(3rem, 1vw, 3rem);
+  color: black;
+}
+
+nav h1:hover {
+  background-color: #ffd500;
+  color: black;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  box-shadow: -10px 0px 10px rgba(0, 0, 0, 0, 1);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.sidebar li {
+  width: 100%;
+}
+
+.sidebar a {
+  width: 100%;
+}
+
+.carousel img {
+  border: 2px solid;
+  width: 400px;
+  height: 250px;
+  flex-shrink: 0;
+  /* Запрещаем уменьшение размера изображения */
+}
+
+.carousel h1 {
+  font-size: 1.5rem;
+}
+
+.carousel a {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.previousbutton,
+.nextbutton {
+  margin: 10px;
+  /* Добавляем отступы вокруг кнопок */
+  padding: 10px 20px;
+  /* Добавляем внутренние отступы */
+  border: none;
+  color: #ffd500;
+  background: black;
+  cursor: pointer;
+  border-radius: 5px;
+  /* Закругляем углы */
+  transition: background-color 0.3s, color 0.3s;
+  /* Добавляем плавный переход */
+}
+
+.previousbutton:hover,
+.nextbutton:hover {
+  background-color: #ffd500;
+  color: black;
+}
+
+.gallery {
+  width: 390px;
+}
+
+.gallery div {
+  display: none;
+}
+
+.gallery .isActive {
+  display: block;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.carousel {
+  display: flex;
+  /* Добавляем flex-контейнер для горизонтального расположения текста и изображения */
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.frametriggerbutton {
+  background: black;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  margin-left: 8rem;
+  cursor: pointer;
+  width: 55px;
+  height: 55px;
+  border: 2px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1rem;
+}
+
+.frametriggerbutton:hover {
+  background-color: white;
+  color: black;
+  transition: ease-out 750ms;
+}
+
+.frametriggerbutton:focus {
+  background-color: white;
+  color: black;
+}
+
+.toggle-icon {
+  float: right;
+  /* Align the icon to the right */
+  font-size: 16px;
+  /* Adjust the font size as needed */
+  color: #666;
+  /* Set the color of the icon */
+  transition: transform 0.3s ease;
+  /* Add a transition effect for smoother animation */
+}
+
+/* Style for the plus icon */
+.toggle-icon.fa-plus {
+  transform: rotate(0deg);
+  /* Rotate the plus icon to appear as a minus */
+}
+
+/* Style for the minus icon */
+.toggle-icon.fa-minus {
+  transform: rotate(180deg);
+  /* Rotate the minus icon to appear as a plus */
+}
+
+.faq-wrapper {
+  width: 100%;
+}
+
+.faq-block {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.faq-block h2 {
+  padding-bottom: 1rem;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.faq-block ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+.faq-block li {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.faq-block h3 {
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+}
+
+.faq-block p {
+  font-size: 20px;
+  color: #999;
+}
+
+.faq-block .answer {
+  margin: 1rem;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.faq-block .show-answer {
+  max-height: 1000px;
+  /* adjust as needed to show the full content */
+}
+
+@media screen and (max-width: 1100px) {
+  .hideOnMobile {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .container-top {
+    display: none;
+  }
+
+  .column-right-map {
+    margin-bottom: 5rem;
+  }
+
+  .pricing-item {
+    padding: 0;
+    /* Добавляем отступ между блоками */
+  }
+
+  .frametriggerbutton {
+    margin-bottom: 4rem;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    /* Reverse the order of columns */
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+    /* Take full width of the container */
+  }
+
+  .hero-image {
+    width: 200px;
+    /* Adjust image width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin: 0 auto;
+    /* Center the image */
+  }
+}

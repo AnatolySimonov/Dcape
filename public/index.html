@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ДИКЕЙП</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/img/favicon.png" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="hideOnMobile">
+        <div class="communication">
+          <a href="tel:+78007953565"> 8 (800) 795-35-65 </a>
+          <dialog class="modal" id="callDialog">
+            <div onclick="hideModal()" id="cancel" class="cancel">
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <form action="/call_back" method="POST">
+              <p>Введите номер телефона и мы свяжемся с вами!</p>
+              <input
+                type="text"
+                name="phonenumber"
+                id="callNumber"
+                placeholder="+7"
+                required
+              />
+              <button type="submit" class="modalbutton" id="call">
+                Отправить
+              </button>
+            </form>
+          </dialog>
+          <a href="#" class="call">Обратный звонок</a>
+        </div>
+      </div>
+      <ul>
+        <li>
+          <div class="logo"><a href="index.html">ДИКЕЙП</a></div>
+        </li>
+        <li class="hideOnMobile">
+          <input type="text" class="search" placeholder="Найти..." />
+          <button onclick="toggleSearch()" class="search-button">
+            <img src="assets/img/search.png" class="icon" />
+          </button>
+        </li>
+        <li class="hideOnMobile">
+          <div class="dropdown">
+            <a href="services.html"> Услуги</a>
+            <div class="content">
+              <a href="services.html#dev">Создание сайтов под ключ</a>
+              <a href="services.html#seo">Продвижение сайтов</a>
+              <a href="services.html#design">Дизайн сайтов</a>
+            </div>
+          </div>
+        </li>
+        <li class="hideOnMobile"><a href="contacts.html">Контакты </a></li>
+        <li class="hideOnMobile">
+          <a href="request.html">
+            <button>Онлайн-заявка</button>
+          </a>
+        </li>
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="36"
+              viewBox="0 -960 960 960"
+              width="36"
+            >
+              <path
+                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="call" href="tel:+78007953565"> 8 (800) 795-35-65 </a>
+          <dialog class="modal" id="callDialog">
+            <p>Введите номер телефона и мы свяжемся с вами!</p>
+            <input type="text" id="callNumber" placeholder="+7" />
+            <a id="cancel">Отмена</a>
+            <button class="mbutton" id="call">Отправить</button>
+          </dialog>
+          <a href="#" class="call">Обратный звонок</a>
+        </li>
+        <li><input type="text" class="search" placeholder="Найти..." /></li>
+        <li>
+          <a href="services.html"> Услуги</a>
+        </li>
+        <li><a href="contacts.html">Контакты </a></li>
+        <li>
+          <a href="request.html">
+            <button>Онлайн-заявка</button>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header"></div>
+    <section class="hero">
+      <div class="home-page">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img id="slide-1" src="assets/img/slide-1.png" />
+            <img id="slide-2" src="assets/img/slide-2.png" />
+            <img id="slide-3" src="assets/img/slide-3.png" />
+          </div>
+          <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+          </div>
+        </div>
+        <div class="hero-container">
+          <div class="home-page-text-wrapper">
+            <h1><br /></h1>
+            <p>
+              Мы - молодая и амбициозная IT-компания, основанная группой
+              талантливых разработчиков и специалистов в области информационных
+              технологий. Мы специализируемся на создании инновационных решений
+              для различных отраслей бизнеса, таких как финансы, образование,
+              медицина и многих других. Наши продукты помогают компаниям
+              оптимизировать свои процессы, увеличивать эффективность работы и
+              достигать новых высот на рынке. В своей работе мы используем
+              только самые современные технологии и методики, чтобы
+              гарантировать нашим клиентам наилучший результат.
+            </p>
+            <h1><br />О нашей компании</h1>
+            <p>
+              Компания "Дикейп" является ведущим поставщиком услуг в сфере
+              веб-разработки и маркетинга. Расположенная в Москве, мы с
+              гордостью обслуживаем клиентов как на местном, так и на
+              международном уровне. Наш опытный и творческий коллектив
+              специалистов гарантирует высокое качество работ и индивидуальный
+              подход к каждому проекту.
+            </p>
+            <div class="pagination">
+              <h1>Процесс создания веб-сайта</h1>
+              <button id="frametrigger1" class="frametriggerbutton">1</button>
+              <button id="frametrigger2" class="frametriggerbutton">2</button>
+              <button id="frametrigger3" class="frametriggerbutton">3</button>
+              <button id="frametrigger4" class="frametriggerbutton">4</button>
+              <button id="frametrigger5" class="frametriggerbutton">5</button>
+              <button id="frametrigger6" class="frametriggerbutton">6</button>
+              <div class="carousel-container">
+                <div id="carousel" class="carousel">
+                  <div class="gallery">
+                    <div id="frame1" class="isActive">
+                      <h1>Подготовка</h1>
+                      <img src="assets/img/frame1.jpg" /><button
+                        class="nextbutton"
+                        onclick="switchFrame(1, true)"
+                      >
+                        Следующий шаг</button
+                      ><a
+                        ><br />Подготовка - важный этап, на котором мы тесно
+                        сотрудничаем с клиентом, чтобы полностью понять его
+                        потребности и цели. На этом этапе мы проводим детальный
+                        анализ бизнеса заказчика, изучаем его целевую аудиторию,
+                        основные конкуренты и особенности рынка.</a
+                      >
+                    </div>
+                    <div id="frame2">
+                      <h1>Дизайн</h1>
+                      <img src="assets/img/frame2.jpg" />
+                      <button
+                        class="previousbutton"
+                        onclick="switchFrame(2, false)"
+                      >
+                        Назад
+                      </button>
+                      <button class="nextbutton" onclick="switchFrame(2, true)">
+                        Следующий шаг</button
+                      ><a
+                        ><br />Мы превращаем концепции в эстетически
+                        привлекательный и функциональный веб-дизайн. Наша цель -
+                        создать дизайн, который сочетает в себе эстетику и
+                        функциональность, привлекая и удерживая пользователей на
+                        вашем сайте.</a
+                      >
+                    </div>
+                    <div id="frame3">
+                      <h1>Программирование</h1>
+                      <img src="assets/img/frame3.jpg" />
+                      <button
+                        class="previousbutton"
+                        onclick="switchFrame(3, false)"
+                      >
+                        Назад
+                      </button>
+                      <button class="nextbutton" onclick="switchFrame(3, true)">
+                        Следующий шаг</button
+                      ><a
+                        ><br />
+                        Мы создаем чистый и эффективный код, который
+                        обеспечивает высокую производительность и удобство
+                        использования сайта. Наша команда учитывает все ваши
+                        требования и функциональные особенности, внедряя
+                        необходимые инструменты и функции.</a
+                      >
+                    </div>
+                    <div id="frame4">
+                      <h1>Верстка</h1>
+                      <img src="assets/img/frame4.jpg" />
+                      <button
+                        class="previousbutton"
+                        onclick="switchFrame(4, false)"
+                      >
+                        Назад
+                      </button>
+                      <button class="nextbutton" onclick="switchFrame(4, true)">
+                        Следующий шаг</button
+                      ><a
+                        ><br />
+                        Наши специалисты преобразуют дизайн в интерактивный
+                        пользовательский интерфейс, создавая структуру и внешний
+                        вид каждой страницы сайта. Мы используем технологии
+                        HTML, CSS и JavaScript для создания адаптивного и
+                        кроссбраузерного интерфейса.</a
+                      >
+                    </div>
+                    <div id="frame5">
+                      <h1>Тестирование</h1>
+                      <img src="assets/img/frame5.jpg" />
+                      <button
+                        class="previousbutton"
+                        onclick="switchFrame(5, false)"
+                      >
+                        Назад
+                      </button>
+                      <button class="nextbutton" onclick="switchFrame(5, true)">
+                        Следующий шаг</button
+                      ><a
+                        ><br />
+                        На этапе тестирования наша команда проводит комплексное
+                        тестирование функциональности и совместимости сайта. Мы
+                        проверяем работоспособность всех элементов интерфейса,
+                        корректность отображения на различных устройствах и
+                        веб-браузерах.</a
+                      >
+                    </div>
+                    <div id="frame6">
+                      <h1>Наполнение</h1>
+                      <img src="assets/img/frame6.jpg" />
+                      <button
+                        class="previousbutton"
+                        onclick="switchFrame(6, false)"
+                      >
+                        Назад</button
+                      ><br /><a
+                        >На этапе наполнения сайта мы создаем и добавляем
+                        контент, который соответствует вашим потребностям и
+                        целям. Наша цель - предоставить пользователю полезную и
+                        информативную информацию, которая будет привлекать
+                        внимание и поддерживать интерес к вашему бренду или
+                        продукту.</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="website-development">
+              <h1>Сколько стоит разработка веб-сайта?</h1>
+              <p>
+                Здесь вы можете узнать о ценах на разработку веб-сайта с
+                различными функциями и опциями.
+              </p>
+            </div>
+            <div class="pricing-container">
+              <div class="pricing-item">
+                <h3>Начальный пакет</h3>
+                <p>25 000 руб</p>
+                <ul>
+                  <li>Упрощенный дизайн</li>
+                  <li>2 страницы</li>
+                  <li>Адаптивность</li>
+                  <a href="request.html" class="request-button">Заказать</a>
+                </ul>
+              </div>
+              <div class="pricing-item">
+                <h3>Стандартный пакет</h3>
+                <p>40 000 руб</p>
+                <ul>
+                  <li>Продвинутый дизайн</li>
+                  <li>3 страницы</li>
+                  <li>Адаптивность</li>
+                  <a href="request.html" class="request-button">Заказать</a>
+                </ul>
+              </div>
+              <div class="pricing-item">
+                <h3>Премиум пакет</h3>
+                <p>65 000 руб</p>
+                <ul>
+                  <li>Уникальный дизайн</li>
+                  <li>6 страниц</li>
+                  <li>Адаптивность</li>
+                  <a href="request.html" class="request-button">Заказать</a>
+                </ul>
+              </div>
+            </div>
+            <div class="faq-wrapper">
+              <div class="faq-block" id="faq">
+                <h2>Часто задаваемые вопросы о создании сайтов</h2>
+                <ol>
+                  <li>
+                    <h3>
+                      <br />Что такое веб-разработка?
+                      <i class="fa fa-plus toggle-icon"></i>
+                    </h3>
+                    <p class="answer">
+                      Веб-разработка - это процесс создания и поддержки
+                      веб-сайтов. Он включает в себя работу с различными
+                      технологиями, такими как HTML, CSS, JavaScript и другими,
+                      для создания функциональных и привлекательных сайтов.
+                    </p>
+                  </li>
+                  <li>
+                    <h3>
+                      Какие этапы включает в себя создание сайта?
+                      <i class="fa fa-plus toggle-icon"></i>
+                    </h3>
+                    <p class="answer">
+                      Создание сайта включает несколько этапов, включая анализ
+                      требований, проектирование, разработку, тестирование и
+                      запуск. Каждый этап важен для создания успешного и
+                      эффективного веб-проекта.
+                    </p>
+                  </li>
+                  <li>
+                    <h3>
+                      Как выбрать хорошего веб-разработчика?
+                      <i class="fa fa-plus toggle-icon"></i>
+                    </h3>
+                    <p class="answer">
+                      При выборе веб-разработчика важно обратить внимание на его
+                      опыт, портфолио, репутацию и степень профессионализма.
+                      Хороший веб-разработчик должен быть готов обсудить ваши
+                      потребности и предложить наилучшие решения для вашего
+                      проекта.
+                    </p>
+                  </li>
+                  <li>
+                    <h3>
+                      Что такое оптимизация для поисковых систем (SEO)?
+                      <i class="fa fa-plus toggle-icon"></i>
+                    </h3>
+                    <p class="answer">
+                      Оптимизация для поисковых систем (SEO) - это процесс
+                      улучшения видимости вашего сайта в результатах поиска. Это
+                      включает в себя оптимизацию контента, тегов, скорости
+                      загрузки и других факторов, чтобы привлечь больше
+                      органического трафика на ваш сайт.
+                    </p>
+                  </li>
+                  <li>
+                    <h3>
+                      Вы работаете с НДС?
+                      <i class="fa fa-plus toggle-icon"></i>
+                    </h3>
+                    <p class="answer">
+                      Да, мы работаем с НДС и предоставляем необходимые
+                      документы для бухгалтерского учета.
+                    </p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="container-top">
+            <a href="#" class="top"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <div class="row">
+          <a href="#"><i class="fa fa-telegram"></i></a>
+          <a href="#"><i class="fa fa-vk"></i></a>
+          <a href="#"><i class="fa fa-odnoklassniki"></i></a>
+        </div>
+
+        <div class="row">
+          <ul>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="index.html#faq">Вопросы и ответы</a></li>
+            <li><a href="#">Политика обработки данных</a></li>
+          </ul>
+        </div>
+
+        <div class="row">ООО ДИКЕЙП © 2024 - Все права защищены.</div>
+      </div>
+    </footer>
+    <script src="scripts/togglefaq.js"></script>
+    <script src="scripts/togglesidebar.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/togglesearch.js"></script>
+    <script src="scripts/carousel.js"></script>
+  </body>
+</html>

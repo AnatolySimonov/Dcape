@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--Footer icons-->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ДИКЕЙП</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/img/favicon.png" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="hideOnMobile">
+        <div class="communication">
+          <a href="tel:+78007953565"> 8 (800) 795-35-65 </a>
+          <dialog class="modal" id="callDialog">
+            <div onclick="hideModal()" id="cancel" class="cancel">
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path
+                    d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <!-- Использовать после настройки сервера
+                    <form action="backcall.php" method="POST"> 
+                        <p>Введите номер телефона и мы свяжемся с вами!</p>
+                        <input type="text" id="callNumber" placeholder="+7" required>
+                        <button class="modalbutton" id="call">Отправить</button>
+                    </form>-->
+            <form
+              action="success.html"
+              autocomplete="off"
+              enctype="multipart/form-data"
+            >
+              <p>Введите номер телефона и мы свяжемся с вами!</p>
+              <input type="text" id="callNumber" placeholder="+7" required />
+              <button class="modalbutton" id="call">Отправить</button>
+            </form>
+          </dialog>
+          <a href="#" class="call">Обратный звонок</a>
+        </div>
+      </div>
+      <ul>
+        <li>
+          <div class="logo"><a href="index.html">ДИКЕЙП</a></div>
+        </li>
+        <li class="hideOnMobile">
+          <input type="text" class="search" placeholder="Найти..." />
+          <button onclick="toggleSearch()" class="search-button">
+            <img src="assets/img/search.png" class="icon" />
+          </button>
+        </li>
+        <li class="hideOnMobile">
+          <div class="dropdown">
+            <a href="services.html"> Услуги</a>
+            <div class="content">
+              <a href="services.html#dev">Создание сайтов под ключ</a>
+              <a href="services.html#seo">Продвижение сайтов</a>
+              <a href="services.html#design">Дизайн сайтов</a>
+            </div>
+          </div>
+        </li>
+        <li class="hideOnMobile"><a href="contacts.html">Контакты </a></li>
+        <li class="hideOnMobile">
+          <a href="request.html">
+            <button>Онлайн-заявка</button>
+          </a>
+        </li>
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="36"
+              viewBox="0 -960 960 960"
+              width="36"
+            >
+              <path
+                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()">
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="call" href="tel:+78007953565"> 8 (800) 795-35-65 </a>
+          <dialog class="modal" id="callDialog">
+            <p>Введите номер телефона и мы свяжемся с вами!</p>
+            <input type="text" id="callNumber" placeholder="+7" />
+            <a id="cancel">Отмена</a>
+            <button class="mbutton" id="call">Отправить</button>
+          </dialog>
+          <a href="#" class="call">Обратный звонок</a>
+        </li>
+        <li><input type="text" class="search" placeholder="Найти..." /></li>
+        <li>
+          <a href="services.html"> Услуги</a>
+        </li>
+        <li><a href="contacts.html">Контакты </a></li>
+        <li>
+          <a href="request.html">
+            <button>Онлайн-заявка</button>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header"></div>
+    <section class="hero">
+      <div class="hero-container">
+        <div class="column-left">
+          <h1>Контакты</h1>
+          <p>
+            <img
+              src="assets\img\location.png"
+              alt="illustration"
+              class="icon"
+            />
+            Основной офис<br />
+            117412, Россия, Москва, улица Милашенкова, дом 12
+          </p>
+          <p>
+            <img src="assets\img\phone.png" alt="illustration" class="icon" />
+            Бесплатно по РФ:<br />
+            88007953565
+          </p>
+          <p>
+            <img src="assets\img\clock.png" alt="illustration" class="icon" />
+            Время работы:<br />
+            Пн-Пт — с 10:00 до 19:00<br />
+            Сб-Вс — выходной
+          </p>
+          <p>
+            <img src="assets\img\email.png" alt="illustration" class="icon" />
+            dcape@yandex.ru
+          </p>
+        </div>
+        <div class="column-right-map">
+          <script
+            type="text/javascript"
+            charset="utf-8"
+            async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A70466de5b66255ffcdfe10f59007baa6e92dc57539c16c3027b52b943656c6d8&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"
+          ></script>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <div class="row">
+          <a href="#"><i class="fa fa-telegram"></i></a>
+          <a href="#"><i class="fa fa-vk"></i></a>
+          <a href="#"><i class="fa fa-odnoklassniki"></i></a>
+        </div>
+
+        <div class="row">
+          <ul>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="index.html#faq">Вопросы и ответы</a></li>
+            <li><a href="#">Политика обработки данных</a></li>
+          </ul>
+        </div>
+
+        <div class="row">ООО ДИКЕЙП © 2024 - Все права защищены.</div>
+      </div>
+    </footer>
+    <script src="scripts/togglesidebar.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/togglesearch.js"></script>
+  </body>
+</html>

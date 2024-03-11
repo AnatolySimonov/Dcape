@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ДИКЕЙП</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/img/favicon.png" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="hideOnMobile">
+        <div class="communication"></div>
+      </div>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()"></li>
+      </ul>
+    </nav>
+
+    <div class="header"></div>
+    <section class="hero">
+      <div class="home-page">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img id="slide-1" src="assets/img/slide-1.png" />
+            <img id="slide-2" src="assets/img/slide-2.png" />
+            <img id="slide-3" src="assets/img/slide-3.png" />
+          </div>
+          <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+          </div>
+        </div>
+        <div class="hero-container">
+          <div class="home-page-text-wrapper">
+            <div class="website-development"></div>
+            <div class="pricing-container"></div>
+            <div class="faq-wrapper">
+              <div class="faq-block" id="faq"></div>
+            </div>
+          </div>
+          <div class="container-top">
+            <a href="#" class="top"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <div class="row"></div>
+        <div class="row"></div>
+        <div class="row">ООО ДИКЕЙП © 2024 - Все права защищены.</div>
+      </div>
+    </footer>
+    <script src="scripts/togglefaq.js"></script>
+    <script src="scripts/togglesidebar.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/togglesearch.js"></script>
+    <script src="scripts/carousel.js"></script>
+  </body>
+</html>
