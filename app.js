@@ -20,6 +20,7 @@ const connection = mysql.createConnection({
 });
 
 app.post("/call_back", async function (req, res) {
+  console.log(req.body);
   await connection.promise().query(
     `INSERT INTO call_back (phone_number) 
         VALUES (?)`,
