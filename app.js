@@ -14,7 +14,7 @@ import mysql from "mysql2";
 const connection = mysql.createConnection({
   port: "3306",
   user: "gen_user",
-  host: "109.71.245.8",
+  host: "192.168.0.4",
   database: "default_db",
   password: "12a17d060777"
 });
