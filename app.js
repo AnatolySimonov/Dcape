@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
   user: "gen_user",
   host: "109.71.245.8",
   database: "default_db",
-  password: "F0kzK1xcos6TT99"
+  password: "12a17d060777"
 });
 
 app.post("/call_back", async function (req, res) {
